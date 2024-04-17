@@ -41,6 +41,11 @@ Enhanced search capabilities allow users to navigate information efficiently:
    - Selecting new tags will update the event list accordingly.
 4. **Event Access**: Clicking an event provides a direct link to detailed view and edit options.
 
+#### workbench
+Workbench can build new tags with EVENT or pure EVENT
+1. **Relate Tags**: workbench would be saved into an exiting tag
+2. **Relate EVENT**: Related event will define as member of the new workbench, only declaring new tag will effected the Related EVENT.
+3. **Declare new tag**: workbench will declare as new tag and add the tag to all EVENT related in the workbench
 ## Versioning
 Ensure each release of your application is properly versioned. Use semantic versioning (SEMVER) for clarity and consistency. Examples:
 - Major updates: `1.0.0`, `2.0.0`
