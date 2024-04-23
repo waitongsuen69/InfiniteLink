@@ -4,6 +4,12 @@ A note-taking app that leverages a reticular formation for dynamic information o
 ## Overview
 InfiniteLink offers a flexible and intuitive way to access and prioritize information, enhancing productivity by organizing notes in a network-like structure without fixed endpoints.
 
+## instruction
+```
+. ./setup.sh
+npm start
+```
+
 ## Design
 
 ### Development Stack
@@ -58,9 +64,3 @@ Use tags in your version control system to mark these versions accordingly.
 Contributions are welcome. Please fork the repository, make changes, and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
 
 Ensure to update tests as appropriate.
-
-## instruction
-```
-. ./setup.sh
-npm start
-```
