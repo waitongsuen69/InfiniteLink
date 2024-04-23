@@ -9,7 +9,7 @@ InfiniteLink offers a flexible and intuitive way to access and prioritize inform
 ### Development Stack
 This project is built using:
 - ~~Python~~**Java Script**: Handles backend functionalities and logic implementation.
-- ~~MySQL~~ **Neo4j**: Manages database operations.
+- ~~MySQL~~ ~~Neo4j~~ **MongoDB**: Manages database operations.
 - ~~Flask~~ **Node.js**: Used for frontend development and server-side logic.
 
 ### Core Objects
@@ -58,3 +58,9 @@ Use tags in your version control system to mark these versions accordingly.
 Contributions are welcome. Please fork the repository, make changes, and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
 
 Ensure to update tests as appropriate.
+
+## instruction
+```
+. ./setup.sh
+npm start
+```
