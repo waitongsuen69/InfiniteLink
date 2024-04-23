@@ -8,9 +8,9 @@ InfiniteLink offers a flexible and intuitive way to access and prioritize inform
 
 ### Development Stack
 This project is built using:
-- **Python**: Handles backend functionalities and logic implementation.
-- **MySQL**: Manages database operations.
-- **Flask**: Used for frontend development and server-side logic.
+- ~~Python~~**Java Script**: Handles backend functionalities and logic implementation.
+- ~~MySQL~~ **Neo4j**: Manages database operations.
+- ~~Flask~~ **Node.js**: Used for frontend development and server-side logic.
 
 ### Core Objects
 
