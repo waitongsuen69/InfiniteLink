@@ -52,6 +52,12 @@ Workbench can build new tags with EVENT or pure EVENT
 1. **Relate Tags**: workbench would be saved into an exiting tag
 2. **Relate EVENT**: Related event will define as member of the new workbench, only declaring new tag will effected the Related EVENT.
 3. **Declare new tag**: workbench will declare as new tag and add the tag to all EVENT related in the workbench
+## Files
+- models/: Define Mongoose schemas and models.
+- routes/: Contains files that handle routing of your application.
+- config/: Holds configuration files for different aspects of application.
+- server.js: main entry point of your Node.js application.
+
 ## Versioning
 Ensure each release of your application is properly versioned. Use semantic versioning (SEMVER) for clarity and consistency. Examples:
 - Major updates: `1.0.0`, `2.0.0`

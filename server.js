@@ -10,10 +10,13 @@ app.use(express.json());
 const mongoURI = 'mongodb://localhost:27017/mydatabase';
 
 // Connect to MongoDB
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+
+// deprecate 
+// mongoose.connect(mongoURI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+mongoose.connect('mongodb://localhost:27017/mydatabase')
 .then(() => console.log('MongoDB connection established'))
 .catch(err => console.log('MongoDB connection error:', err));
 
@@ -21,6 +24,7 @@ mongoose.connect(mongoURI, {
 app.get('/', (req, res) => {
   res.send('Hello World from the server!');
 });
+
 
 // Start the server on port 5000
 const PORT = process.env.PORT || 5000;

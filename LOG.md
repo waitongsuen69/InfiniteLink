@@ -13,3 +13,4 @@
 - **Contributor**: @husky
 - **Changes**:
     - Sort of setup database `MongoDB`
+    - refer [MongoDB](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/) to install in local
