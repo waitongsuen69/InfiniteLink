@@ -7,5 +7,9 @@
     - Change Development Stack after research
     - build up frame of node.js
     - basic of setup.sh
-    
 
+### Day 2
+- **Date**: 29/04/2024
+- **Contributor**: @husky
+- **Changes**:
+    - Sort of setup database `MongoDB`
