@@ -14,3 +14,14 @@
 - **Changes**:
     - Sort of setup database `MongoDB`
     - refer [MongoDB](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/) to install in local
+
+### Day 3
+- **Date**: 30/04/2024
+- **Contributor**: @husky
+- **Changes**:
+    - Setup database connection in `config/db.js`
+    - Setup database functions in `routes/itemRoutes.js`
+        - save of single item [add_item], list of all items [return_all_items], delete all items [delete_all_items]
+        - export [save/csv] and import [import/csv] as an csv file
+    - Setup a demo item in `models/Item.js`
+    - Create `developer_notes.md` to save all the comments for quick catch-up

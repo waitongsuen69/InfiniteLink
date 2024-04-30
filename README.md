@@ -11,6 +11,10 @@ npm start
 
 // run server
 node server.js 
+
+// if port is in use 
+lsof -i :5000
+kill -9 [PID]
 ```
 
 ## Design
@@ -21,7 +25,7 @@ This project is built using:
 - ~~MySQL~~ ~~Neo4j~~ **MongoDB**: Manages database operations.
 - ~~Flask~~ **Node.js**: Used for frontend development and server-side logic.
 
-### Core Objects
+### Core Items
 
 #### EVENT
 Each note is represented as an "EVENT", structured as follows:

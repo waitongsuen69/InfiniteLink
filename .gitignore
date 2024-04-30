@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+# ignore local data
+/exports
+
 # Compiled Object files
 *.slo
 *.lo
