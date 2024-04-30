@@ -5,6 +5,8 @@ const itemSchema = new mongoose.Schema({
   quantity: Number
 });
 
+// Create a model from the schema
 const Item = mongoose.model('Item', itemSchema);
 
-export default Item;
+// Export the model
+module.exports = Item;

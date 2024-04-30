@@ -8,6 +8,9 @@ InfiniteLink offers a flexible and intuitive way to access and prioritize inform
 ```
 . ./setup.sh
 npm start
+
+// run server
+node server.js 
 ```
 
 ## Design
@@ -52,6 +55,7 @@ Workbench can build new tags with EVENT or pure EVENT
 1. **Relate Tags**: workbench would be saved into an exiting tag
 2. **Relate EVENT**: Related event will define as member of the new workbench, only declaring new tag will effected the Related EVENT.
 3. **Declare new tag**: workbench will declare as new tag and add the tag to all EVENT related in the workbench
+
 ## Files
 - models/: Define Mongoose schemas and models.
 - routes/: Contains files that handle routing of your application.

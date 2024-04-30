@@ -1,31 +1,29 @@
 const express = require('express');
-const mongoose = require('mongoose');
+// const cors = require('cors');
+const connectDB = require('./config/db');
+const itemRoutes = require('./routes/itemRoutes');
+const Item = require('./models/Item.js');
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-// Middleware to parse JSON bodies
-app.use(express.json());
-
-// MongoDB connection string
-const mongoURI = 'mongodb://localhost:27017/mydatabase';
+// Middleware
+// app.use(cors());
+app.use(express.json()); // replaces bodyParser.json()
 
 // Connect to MongoDB
+connectDB();
 
-// deprecate 
-// mongoose.connect(mongoURI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// })
-mongoose.connect('mongodb://localhost:27017/mydatabase')
-.then(() => console.log('MongoDB connection established'))
-.catch(err => console.log('MongoDB connection error:', err));
+// Routes
+// app.use('/api/items', itemRoutes);
 
 // Define a simple route to test the server
 app.get('/', (req, res) => {
   res.send('Hello World from the server!');
 });
 
+// Apply item routes to the application
+app.use(itemRoutes); 
 
-// Start the server on port 5000
-const PORT = process.env.PORT || 5000;
+// Start the server
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

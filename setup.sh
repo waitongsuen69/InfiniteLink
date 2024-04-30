@@ -37,6 +37,7 @@ fi
 
 echo "Node.js installation completed."
 node -v  # Display the version of Node.js installed
+npm install
 npm -v   # Display the version of npm installed
 
 
