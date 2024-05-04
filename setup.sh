@@ -35,10 +35,34 @@ else
     install_node
 fi
 
-echo "Node.js installation completed."
+# Check if MongoDB is installed
+if command -v mongod >/dev/null 2>&1; then
+    echo "MongoDB is already installed."
+else
+    # Install MongoDB
+    echo "MongoDB is not installed. Installing..."
+    sudo apt-get update
+    sudo apt-get install gnupg curl
+    curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+    sudo mkdir  /etc/apt/sources.list.d/mongodb-org-7.0.list
+    echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+    sudo apt-get update
+    sudo apt-get install -y mongodb-org
+fi
+
+
+
+mongod -v
 node -v  # Display the version of Node.js installed
 npm install
 npm -v   # Display the version of npm installed
 
-
+# Check if mongod service is active
+if systemctl is-active --quiet mongod; then
+    echo "MongoDB is already running."
+else
+    # Start mongod service
+    sudo systemctl start mongod
+    echo "MongoDB started."
+fi
 
