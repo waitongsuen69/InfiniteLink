@@ -44,8 +44,11 @@ else
     sudo apt-get update
     sudo apt-get install gnupg curl
     curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
-    sudo mkdir  /etc/apt/sources.list.d/mongodb-org-7.0.list
-    echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+    # echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | 
+    # sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+    echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -sc)/mongodb-org/7.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
     sudo apt-get update
     sudo apt-get install -y mongodb-org
 fi
@@ -66,3 +69,14 @@ else
     echo "MongoDB started."
 fi
 
+#if fail mongod permission
+# sudo chown -R mongodb:mongodb /var/lib/mongodb
+# sudo chmod 700 /var/lib/mongodb
+
+# or in /etc/mongod.conf
+# processManagement:
+#    fork: true
+
+# environment setup
+# git config --global user.email "waitongsuen@outlook.com"
+#   git config --global user.name "stargazer"
