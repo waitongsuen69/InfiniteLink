@@ -1,0 +1,20 @@
+# Use the official Node.js 16 as a parent image
+FROM node:16
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json (or yarn.lock) to work directory
+COPY package.json package-lock.json ./
+
+# Install production dependencies.
+RUN npm install --only=production
+
+# Copy the rest of your application's code
+COPY . .
+
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
+
+# Run the app when the container launches
+CMD ["node", "server.js"]

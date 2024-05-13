@@ -6,3 +6,6 @@
     - DELETE: `curl -X DELETE http://localhost:5000/delete_all_items`
     - EXPORT: `curl http://localhost:5000/save/csv`
     - IMPORT: `curl -X POST http://localhost:5000/import/csv`
+
+- docker build 
+    - 

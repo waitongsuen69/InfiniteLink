@@ -25,3 +25,13 @@
         - export [save/csv] and import [import/csv] as an csv file
     - Setup a demo item in `models/Item.js`
     - Create `developer_notes.md` to save all the comments for quick catch-up
+
+### Day 4
+- **Date**: 13/05/2024
+- **Contributor**: @husky
+- **Changes**:
+    - creating docker compose  
+    - create server image
+    - separate out front end image 
+    - mongodb still can't connect
+    - going to fix db.js to match the new host port
