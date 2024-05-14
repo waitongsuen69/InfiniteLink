@@ -7,6 +7,9 @@ InfiniteLink offers a flexible and intuitive way to access and prioritize inform
 ## instruction
 ### run with docker
 ```
+cd /Path/to/InfiniteLink
+docker-compose build
+docker-compose up 
 ```
 
 ### run in local
