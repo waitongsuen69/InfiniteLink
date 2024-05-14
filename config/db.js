@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-      await mongoose.connect('mongodb://localhost:27017/myDatabase', {
+      await mongoose.connect('mongodb://mongodb:27017/myDatabase', {
         // deprecate
         // useNewUrlParser: true,
         // useUnifiedTopology: true
@@ -14,6 +14,7 @@ const connectDB = async () => {
       // Exit process with failure code
       process.exit(1);
     }
-  };
+
+};
   
 module.exports = connectDB;
