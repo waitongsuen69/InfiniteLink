@@ -5,12 +5,20 @@ A note-taking app that leverages a reticular formation for dynamic information o
 InfiniteLink offers a flexible and intuitive way to access and prioritize information, enhancing productivity by organizing notes in a network-like structure without fixed endpoints.
 
 ## instruction
+### run with docker
 ```
-. ./setup.sh
+```
+
+### run in local
+```
+. ./bin/setup.sh
 npm start
 
 // run server
 node server.js 
+
+// run front-end
+npm start
 
 // if port is in use 
 lsof -i :5000

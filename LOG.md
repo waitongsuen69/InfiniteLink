@@ -35,3 +35,12 @@
     - separate out front end image 
     - mongodb still can't connect
     - going to fix db.js to match the new host port
+
+### Day 5
+- **Date**: 14/05/2024
+- **Contributor**: @husky
+- **Changes**:
+    - bring docker-compose to working status
+    - separate repo into `backend` and `frontend`
+    - create separate frontend and backend `package.json`
+    - `dockerignore` and `gitignore` mods to prevent node_modules get into docker image

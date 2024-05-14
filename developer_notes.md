@@ -8,4 +8,6 @@
     - IMPORT: `curl -X POST http://localhost:5000/import/csv`
 
 - docker build 
-    - 
+    - cd /INFINITELINKS
+    - docker-compose build
+    - docker-compose up 
