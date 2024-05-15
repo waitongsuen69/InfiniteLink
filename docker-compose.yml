@@ -12,8 +12,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile-backend
-    # volumes:
-    #   - ./backend/:/usr/src/app
+    volumes:
+      - ./backend/exports/items.csv:/usr/src/app/exports/items.csv
     ports:
       - "5000:5000"
     environment:
