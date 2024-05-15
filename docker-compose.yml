@@ -13,7 +13,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile-backend
     volumes:
-      - ./backend/exports/items.csv:/usr/src/app/exports/items.csv
+      - ./backend/exports:/usr/src/app/exports
     ports:
       - "5000:5000"
     environment:
