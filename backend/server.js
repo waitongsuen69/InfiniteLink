@@ -20,9 +20,15 @@ connectDB();
 
 // Define a simple route to test the server
 app.get('/', (req, res) => {
-  const items = itemFuncs.getAllItems();
+  // itemFuncs.importItemsFromCSV();
+  // const items = itemFuncs.getAllItems();
+  // res.json(items);
+  res.send('Hello World from the server!');
+});
+
+app.get('/import/csv', async (req, res) => {
+  const items = await itemFuncs.importItemsFromCSV();
   res.json(items);
-  // res.send('Hello World from the server!');
 });
 
 // Apply item routes to the application
