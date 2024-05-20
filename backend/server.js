@@ -2,6 +2,7 @@ const express = require('express');
 // const cors = require('cors');
 const connectDB = require('./config/db');
 const itemRoutes = require('./routes/itemRoutes');
+const itemFuncs = require('./routes/itemRoutesFunc.js');
 const Item = require('./models/Item.js');
 
 const app = express();
@@ -19,7 +20,9 @@ connectDB();
 
 // Define a simple route to test the server
 app.get('/', (req, res) => {
-  res.send('Hello World from the server!');
+  const items = itemFuncs.getAllItems();
+  res.json(items);
+  // res.send('Hello World from the server!');
 });
 
 // Apply item routes to the application
