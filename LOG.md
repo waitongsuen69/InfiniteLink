@@ -44,3 +44,14 @@
     - separate repo into `backend` and `frontend`
     - create separate frontend and backend `package.json`
     - `dockerignore` and `gitignore` mods to prevent node_modules get into docker image
+
+### Day 6
+- **Date**: 20/05/2024
+- **Contributor**: @husky
+- **Changes**:
+    - new markdown introduce: FIXME.md to list all the potential bugs to fix
+    - new package.json to simplify command 
+    - mongodb connection accept both docker and localhost
+    - create `/backend/routes/itemRoutesFunc.js` for easy function call for server
+    - verify that the backend is not fucked up
+    
