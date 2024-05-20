@@ -14,8 +14,8 @@ const connectDB = async () => {
       try {
         // Fallback to the secondary URI if the primary connection fails
         await mongoose.connect('mongodb://localhost:27017/yourDatabase', {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
+          // useNewUrlParser: true,
+          // useUnifiedTopology: true,
         });
         console.log(`MongoDB connected at mongodb://localhost:27017/yourDatabase`);
       } catch (err) {
