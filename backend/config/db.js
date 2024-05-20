@@ -8,7 +8,7 @@ const connectDB = async () => {
         // useNewUrlParser: true,
         // useUnifiedTopology: true
       });
-      console.log('MongoDB Connected');
+      console.log('MongoDB Connected at mongodb://mongodb:27017/yourDatabase');
     } catch (err) {
       console.error('Failed to connect to MongoDB using mongodb://mongodb:27017/myDatabase');
       try {
