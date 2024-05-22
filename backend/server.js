@@ -18,21 +18,30 @@ connectDB();
 // Routes
 
 // Define a simple route to test the server
-app.get('/', async (req, res) => {
-  try {
-    await noteFuncs.importNotesFromCSV();
-    const items = await noteFuncs.getAllNotes();
-    res.json(items);
-  // res.send('Hello World from the server!');
-  } catch (error) {
-    // If an error occurs, send an appropriate error message
-    res.status(500).json({ message: 'Error processing request: ' + error.message });
-}
+app.get('/', (req, res) => {
+  res.send('Hello World from the server!');
 });
+// app.get('/', async (req, res) => {
+//   try {
+//     await noteFuncs.importNotesFromCSV();
+//     const items = await noteFuncs.getAllNotes();
+//     res.json(items);
+//   // res.send('Hello World from the server!');
+//   } catch (error) {
+//     // If an error occurs, send an appropriate error message
+//     res.status(500).json({ message: 'Error processing request: ' + error.message });
+// }
+// });
 
 app.get('/import/csv', async (req, res) => {
-  const notes = await noteFuncs.importNotesFromCSV();
-  res.json(notes);
+  try {
+      await noteFuncs.importNotesFromCSV();
+      const items = await noteFuncs.getAllNotes();
+      res.json(items);
+  } catch (error) {
+      // If an error occurs, send an appropriate error message
+      res.status(500).json({ message: 'Error processing request: ' + error.message });
+  }
 });
 
 // Apply note routes to the application
