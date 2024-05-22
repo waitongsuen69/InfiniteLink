@@ -15,16 +15,15 @@ docker-compose up
 ### run in local
 ```
 . ./bin/setup.sh
-npm start
 
-// run server
-node server.js 
+// install package for front and back end
+npm install
 
-// run front-end
+// run the app
 npm start
 
 // if port is in use 
-lsof -i :5000
+lsof -i :5000;lsof -i :3000
 kill -9 [PID]
 ```
 
@@ -42,6 +41,7 @@ This project is built using:
 Each note is represented as an "EVENT", structured as follows:
 - **ID** (`uint16_t`): Unique identifier for each event.
 - **TYPE** (`string`): Specifies the type of event.
+- **FILE_NAME** (`string`): name of the file
 - **UPDATE_TIME** (`DATETIME`): Records the last time the event was updated.
 - **TAGS** (`list<string>`): Tags associated with the event for categorization and search.
 

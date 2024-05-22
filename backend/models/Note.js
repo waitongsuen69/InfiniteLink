@@ -5,15 +5,13 @@ const mongoose = require('mongoose');
 // TYPE (string): Specifies the type of Note_event.
 // UPDATE_TIME (DATETIME): Records the last time the Note_event was updated.
 // TAGS (list<string>): Tags associated with the Note_event for categorization and search.
-const noteEventSchema = new mongoose.Schema({
-    ID: {
-        type: Number,
-        required: true,
-        unique: true
-    },
+const NoteSchema = new mongoose.Schema({
     TYPE: {
         type: String,
         required: true
+    },
+    FILE_NAME: {
+        type: String
     },
     UPDATE_TIME: {
         type: Date,
@@ -25,6 +23,6 @@ const noteEventSchema = new mongoose.Schema({
     }
 });
 
-const NoteEvent = mongoose.model('NoteEvent', noteEventSchema);
+const Note = mongoose.model('Note', NoteSchema);
 
-module.exports = NoteEvent;
+module.exports = Note;
