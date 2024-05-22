@@ -1,12 +1,9 @@
 const express = require('express');
 // const cors = require('cors');
 const connectDB = require('./config/db');
-const itemRoutes = require('./routes/itemRoutes');
 const notesRoutes = require('./routes/noteRoutes');
-// const itemFuncs = require('./routes/itemRoutesFunc.js');
 const noteFuncs = require('./routes/noteRoutesFunc.js');
 const Note = require('./models/Note.js');
-const Item = require('./models/Item.js');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -19,14 +16,18 @@ app.use(express.json()); // replaces bodyParser.json()
 connectDB();
 
 // Routes
-// app.use('/api/items', itemRoutes);
 
 // Define a simple route to test the server
-app.get('/', (req, res) => {
-  // itemFuncs.importItemsFromCSV();
-  // const items = itemFuncs.getAllItems();
-  // res.json(items);
-  res.send('Hello World from the server!');
+app.get('/', async (req, res) => {
+  try {
+    await noteFuncs.importNotesFromCSV();
+    const items = await noteFuncs.getAllNotes();
+    res.json(items);
+  // res.send('Hello World from the server!');
+  } catch (error) {
+    // If an error occurs, send an appropriate error message
+    res.status(500).json({ message: 'Error processing request: ' + error.message });
+}
 });
 
 app.get('/import/csv', async (req, res) => {
@@ -34,8 +35,7 @@ app.get('/import/csv', async (req, res) => {
   res.json(notes);
 });
 
-// Apply item routes to the application
-app.use(itemRoutes); 
+// Apply note routes to the application
 app.use(notesRoutes);
 
 // Start the server

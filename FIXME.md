@@ -3,3 +3,5 @@
 - [ ] fix mongodb brute force connection url feed (`mongodb://mongodb:27017/myDatabase` and `mongodb://localhost:27017/yourDatabase`)
 - [ ] action auto test implementation
 - [ ] server.js function implement before MongoDB connected 
+- [ ] user import from empty or invalid csv
+
