@@ -55,3 +55,10 @@
     - create `/backend/routes/itemRoutesFunc.js` for easy function call for server
     - verify that the backend is not fucked up
     
+### Day 7
+- **Date**: 23/05/2024
+- **Contributor**: @husky
+- **Changes**:
+    - Notes object implemented
+    - Notes object basic function done
+    - finish fixme connection using MONGO_URL variable
