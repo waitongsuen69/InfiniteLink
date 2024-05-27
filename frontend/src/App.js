@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [notes, setNotes] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:5000/items')
+  const get_all_notes = () => {
+    fetch('http://localhost:5000/return_all_notes')
       .then(response => response.json())
-      .then(data => setItems(data))
+      .then(data => setNotes(data))
       .catch(error => console.error('Error:', error));
-  }, []);
+  };
 
   return (
     <div>
-      <h1>Items</h1>
+      <h1>Notes</h1>
+      <button onClick={get_all_notes}>Get All Notes</button>
       <ul>
-        {items.map(item => (
-          <li key={item._id}>{item.name} - Quantity: {item.quantity}</li>
+        {notes.map(note => (
+          <li key={note._id}>{note.FILE_NAME} - type: {note.TYPE} - last update time : {note.UPDATE_TIME}</li>
         ))}
       </ul>
     </div>
@@ -23,29 +24,3 @@ function App() {
 }
 
 export default App;
-
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
