@@ -62,3 +62,10 @@
     - Notes object implemented
     - Notes object basic function done
     - finish fixme connection using MONGO_URL variable
+
+### Day 8
+- **Date**: 27/05/2024
+- **Contributor**: @husky
+- **Changes**:
+    - today mainly focus on frontend, separate out Note component to `frontend/src/NoteFunc`
+    - finish `get_all_notes`, `AddNote`, `ExportCSV`, `ImportCSV`
