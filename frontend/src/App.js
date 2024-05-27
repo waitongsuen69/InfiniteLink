@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AddNote from './NoteFunc/note_add_new.js';
+import {ImportCSV, ExportCSV} from './NoteFunc/csv_handle.js';
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -34,6 +35,8 @@ function App() {
           <li key={note._id}>{note.FILE_NAME} - type: {note.TYPE} - last update time : {note.UPDATE_TIME}</li>
         ))}
       </ul>
+      <ExportCSV/>
+      <ImportCSV get_all_notes={get_all_notes}/>
     </div>
   );
 }
