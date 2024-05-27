@@ -22,7 +22,7 @@ router.get('/return_all_notes', async (req, res) => {
 
 // POST a new Note
 router.post('/add_note', async (req, res) => {
-    const { type, name, tags } = req.body;
+    const { name, type, tags } = req.body;
     try {
         const newNote = await noteFuncs.addNote({ type, name, tags });
         res.status(201).json(newNote);
