@@ -69,3 +69,16 @@
 - **Changes**:
     - today mainly focus on frontend, separate out Note component to `frontend/src/NoteFunc`
     - finish `get_all_notes`, `AddNote`, `ExportCSV`, `ImportCSV`
+
+### Day 9
+- **Date**: 27/05/2024
+- **Contributor**: @husky
+- **focus**: today mainly focus on tags function
+- **Changes**:
+    - new function `get_all_tags`
+    - `note_add_new.js/AddNote` now can properly add tags 
+    - implement auto suggest for tags
+    - fix the import csv issue of json.stringify
+    - now allow to add multiple tags when create new Notes
+    - FIXME: documentation of functions in `note_add_new.js`
+
