@@ -3,12 +3,11 @@ const express = require('express');
 const router = express.Router();
 // Items Schema
 const Note = require('../models/Note.js');
+const noteFuncs = require('./noteRoutesFunc.js');
+
 // Libraries for syncing the data
 const { parse } = require('json2csv');
-const fs = require('fs');
-const path = require('path');
 const csv = require('csv-parser');
-const noteFuncs = require('./noteRoutesFunc.js');
 
 // GET all notes
 router.get('/return_all_notes', async (req, res) => {

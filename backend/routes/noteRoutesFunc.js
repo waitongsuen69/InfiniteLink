@@ -57,7 +57,12 @@ async function importNotesFromCSV() {
   await new Promise((resolve, reject) => {
     fs.createReadStream(filePath)
       .pipe(csv())
-      .on('data', (data) => notes.push(data))
+      .on('data', (data) => {
+        if (data.TAGS) {
+          data.TAGS = JSON.parse(data.TAGS);
+        }        
+        notes.push(data);
+      })
       .on('end', async () => {
         try {
           await deleteAllNotes();

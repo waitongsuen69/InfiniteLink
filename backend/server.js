@@ -1,13 +1,15 @@
 const express = require('express');
-// const cors = require('cors');
-const connectDB = require('./config/db');
-const notesRoutes = require('./routes/noteRoutes');
-const noteFuncs = require('./routes/noteRoutesFunc.js');
 const cors = require('cors');
-const Note = require('./models/Note.js');
-
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// connect database
+const connectDB = require('./config/db');
+// note functions
+const notesRoutes = require('./routes/noteRoutes');
+const noteFuncs = require('./routes/noteRoutesFunc.js');
+const Note = require('./models/Note.js');
+const tagsRoutes = require('./routes/tagRoutes.js');
 
 // Middleware
 // Use CORS middleware
@@ -46,6 +48,7 @@ app.get('/import/csv', async (req, res) => {
 
 // Apply note routes to the application
 app.use(notesRoutes);
+app.use(tagsRoutes);
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
