@@ -1,9 +1,6 @@
 // note_add_new.js
 import React, { useState, useEffect } from 'react';
-import Autosuggest from 'react-autosuggest';
-import TagsInput from 'react-tagsinput';
 import Select from 'react-select';
-import 'react-tagsinput/react-tagsinput.css'; // You might need to adjust the path
 
 // Helper function to fetch all tags from the backend
 const fetchAllTags = async () => {
@@ -130,35 +127,6 @@ const AddNote = ({ onNoteAdded }) => {
           options={tagOptions}
           placeholder="Add tags"
         />
-
-        {/* <Autosuggest
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={handleSuggestionsFetchRequested}
-          onSuggestionsClearRequested={handleSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          inputProps={{
-            value: tagInput,
-            onChange: handleTagInputChange,
-            placeholder: 'Add a tag'
-          }}
-          onSuggestionSelected={(e, { suggestionValue }) => {
-            setTagInput(suggestionValue);
-            handleTagAdd();
-          }}
-        /> */}
-        
-        {/* <input 
-          type="text" 
-          value={tagInput} 
-          onChange={handleTagInputChange} 
-          onKeyPress={(e) => {
-            if (e.key === 'Enter') {
-              e.preventDefault();
-              handleTagAdd();
-            }
-          }}
-        /> */}
         <button type="button" onClick={handleTagAdd}>Add Tag</button>
       </label>
       <br />
