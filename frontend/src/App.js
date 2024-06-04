@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AddNote from './NoteFunc/note_add_new.js';
+import MindMap from './NoteFunc/note_map.js';
 import {ImportCSV, ExportCSV} from './NoteFunc/csv_handle.js';
 
 function App() {
@@ -30,9 +31,10 @@ function App() {
       <h1>Notes</h1>
       <button onClick={get_all_notes}>Get All Notes</button>
       
-      {/* Add notes component
-      <AddNote onNoteAdded={get_all_notes} /> */}
-      
+      <AddNote onNoteAdded={get_all_notes} />
+
+      {/* <MindMap /> */}
+
       <ul>
         {notes.map(note => (
           <li key={note._id}>{note.FILE_NAME} - type: {note.TYPE} - last update time : {note.UPDATE_TIME}</li>
