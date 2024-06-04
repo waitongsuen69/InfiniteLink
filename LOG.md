@@ -82,3 +82,11 @@
     - now allow to add multiple tags when create new Notes
     - FIXME: documentation of functions in `note_add_new.js`
 
+### Day 10
+- **Date**: 05/06/2024
+- **Contributor**: @husky
+- **focus**: today mainly focus on the graph
+- **Changes**:
+    - create new `tagCollect` to collect relationship of tags
+    - create `note_map.js` for the graph 
+    - generate some notes entries for testing

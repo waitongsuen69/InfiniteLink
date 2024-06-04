@@ -31,9 +31,9 @@ function App() {
       <h1>Notes</h1>
       <button onClick={get_all_notes}>Get All Notes</button>
       
-      <AddNote onNoteAdded={get_all_notes} />
+      {/* <AddNote onNoteAdded={get_all_notes} /> */}
 
-      {/* <MindMap /> */}
+      <MindMap />
 
       <ul>
         {notes.map(note => (
