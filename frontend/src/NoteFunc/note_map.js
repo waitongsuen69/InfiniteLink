@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
-
 const handler = require('./handler.js');
 
-
 const MindMap = () => {
-    const [tagCollect, setTagCollect] = useState({tagName: '', popular: '', connection: []});
+    const [tagCollect, setTagCollect] = useState(new Map());
     const [notes, setNotes] = useState([]);
     const [rootNode, setRootNode] = useState(null);
+
+    const fetchAllNotes = async () => {
+        try {
+            const allNotes = await handler.fetchAllNotes();
+            setNotes(allNotes);
+        } catch (error) {
+            console.error('Error fetching notes:', error);
+        }
+    };
 
     const processTags = () => {
         const tagMap = new Map();
@@ -33,8 +40,8 @@ const MindMap = () => {
 
         setTagCollect(sortedTagMap);
 
-        // Set the root node to the most popular tag
-        if (sortedTagArray.length > 0) {
+        // Set the root node to the most popular tag if not set
+        if (sortedTagArray.length > 0 && !rootNode) {
             const [tagName, tagData] = sortedTagArray[0];
             setRootNode({
                 tagName,
@@ -44,10 +51,8 @@ const MindMap = () => {
         }
     };
 
-    // Process tags and create nodes and edges
     useEffect(() => {
-        console.log("Use effect runs");
-        handler.fetchAllNotes();
+        fetchAllNotes();
     }, []);
 
     useEffect(() => {
@@ -56,16 +61,34 @@ const MindMap = () => {
         }
     }, [notes]);
 
-    // Handler to return tagCollect
-    const handleReturnTagCollect = () => {
-        console.log("Tag Collect:", Array.from(tagCollect.entries()));
-        console.log(JSON.stringify(rootNode));
+    const handleTagClick = (tagName) => {
+        const tagData = tagCollect.get(tagName);
+        if (tagData) {
+            setRootNode({
+                tagName,
+                popular: tagData.popular,
+                connections: Array.from(tagData.connections)
+            });
+        }
     };
 
     return (
         <div>
-            <button onClick={handler.fetchAllNotes}>Refresh</button>
-            <button onClick={handleReturnTagCollect}>Return TagCollect</button>
+            <h1>Root Node Connections</h1>
+            {rootNode && (
+                <div>
+                    <h2>{rootNode.tagName}</h2>
+                    <p>Popularity: {rootNode.popular}</p>
+                    <h3>Connections:</h3>
+                    <ul>
+                        {rootNode.connections.map((connection, index) => (
+                            <li key={index}>
+                                <button onClick={() => handleTagClick(connection)}>{connection}</button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     );
 };

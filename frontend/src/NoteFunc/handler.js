@@ -23,6 +23,7 @@ const fetchAllNotes = async () => {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
+    console.log("fetchAllNotes called");
     return data; // Assuming the response is an array of tags
   } catch (error) {
     console.error('Error fetching tags:', error);
