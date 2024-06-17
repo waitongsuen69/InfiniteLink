@@ -3,6 +3,7 @@ import AddNote from './NoteFunc/note_add_new.js';
 import MindMap from './NoteFunc/note_map.js';
 import { ImportCSV, ExportCSV } from './NoteFunc/csv_handle.js';
 const handler = require('./NoteFunc/handler.js');
+import NoteEditorApp from './NoteFunc/notes_editor.js';
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -24,7 +25,9 @@ function App() {
 
       {/* <AddNote onNoteAdded={getAllNotes} /> */}
 
-      <MindMap />
+      {/* <MindMap /> */}
+
+      <NoteEditorApp />
 
       <ul>
         {notes.map(note => (

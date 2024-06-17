@@ -41,7 +41,7 @@ const MindMap = () => {
         setTagCollect(sortedTagMap);
 
         // Set the root node to the most popular tag if not set
-        if (sortedTagArray.length > 0 && !rootNode) {
+        if (sortedTagArray.length > 0) {
             const [tagName, tagData] = sortedTagArray[0];
             setRootNode({
                 tagName,
@@ -74,23 +74,38 @@ const MindMap = () => {
 
     return (
         <div>
-            <h1>Root Node Connections</h1>
+            <button onClick={processTags}>Back to top</button>
             {rootNode && (
                 <div>
-                    <h2>{rootNode.tagName}</h2>
+                    <h2>Current Tag: {rootNode.tagName}</h2>
                     <p>Popularity: {rootNode.popular}</p>
-                    <h3>Connections:</h3>
-                    <ul>
-                        {rootNode.connections.map((connection, index) => (
-                            <li key={index}>
-                                <button onClick={() => handleTagClick(connection)}>{connection}</button>
-                            </li>
-                        ))}
-                    </ul>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ flex: 1, marginRight: '20px' }}>
+                            <h3>Related Tags</h3>
+                            <ul>
+                                {rootNode.connections.map((connection, index) => (
+                                    <li key={index}>
+                                        <button onClick={() => handleTagClick(connection)}>{connection}</button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div style={{ flex: 2 }}>
+                            <h3>Notes Including {rootNode.tagName}</h3>
+                            <ul>
+                                {notes
+                                    .filter(note => note.TAGS.includes(rootNode.tagName))
+                                    .map(note => (
+                                        <li key={note._id}>
+                                            {note.FILE_NAME}
+                                        </li>
+                                    ))}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>
     );
 };
-
 export default MindMap;

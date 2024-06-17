@@ -90,3 +90,12 @@
     - create new `tagCollect` to collect relationship of tags
     - create `note_map.js` for the graph 
     - generate some notes entries for testing
+
+### Day 11
+- **Date**: 17/06/2024
+- **Contributor**: @husky
+- **focus**: FIX the mind map, working on notes editor
+- **Changes**:
+    - merge `fetchAllNotes` into `handler.js`
+    - `note_map.js` Mindmap algorithm seems to be working now
+    - create `notes_editor.js` working on the notes editor, working on it
