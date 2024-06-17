@@ -16,4 +16,21 @@ const fetchAllTags = async () => {
     }
 };
 
-export default fetchAllTags;
+const fetchAllNotes = async () => {
+  try {
+    const response = await fetch('http://localhost:5000/return_all_notes');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data; // Assuming the response is an array of tags
+  } catch (error) {
+    console.error('Error fetching tags:', error);
+    return [];
+  }
+};
+
+
+export {
+  fetchAllNotes, fetchAllTags
+};

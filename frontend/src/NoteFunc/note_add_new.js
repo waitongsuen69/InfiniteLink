@@ -1,7 +1,8 @@
 // note_add_new.js
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
-import fetchAllTags from './tags_handle.js';
+const handler = require('./handler.js');
+
 
 const AddNote = ({ onNoteAdded }) => {
   // new note container
@@ -14,7 +15,7 @@ const AddNote = ({ onNoteAdded }) => {
   // pre-load all suggesting tags
   useEffect(() => {
     const getTags = async () => {
-      const tags = await fetchAllTags();
+      const tags = await handler.fetchAllTags();
       // Assuming tags is an array of objects with { value, label }
       const formattedTags = tags.map(tag => ({ value: tag, label: tag }));
       setTagOptions(formattedTags);

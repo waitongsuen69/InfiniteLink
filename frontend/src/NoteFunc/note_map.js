@@ -1,31 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import ReactFlow from 'react-flow-renderer';
+
+const handler = require('./handler.js');
+
 
 const MindMap = () => {
     const [tagCollect, setTagCollect] = useState({tagName: '', popular: '', connection: []});
-    const [nodes, setNodes] = useState([]);
-    const [edges, setEdges] = useState([]);
     const [notes, setNotes] = useState([]);
-
-    // Fetch notes from the backend
-    const get_all_notes = async () => {
-        try {
-            const response = await fetch('http://localhost:5000/return_all_notes', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                credentials: 'include' // if you need to include cookies
-            });
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-            setNotes(data);
-        } catch (error) {
-            console.error('Error fetching notes:', error);
-        }
-    };
+    const [rootNode, setRootNode] = useState(null);
 
     const processTags = () => {
         const tagMap = new Map();
@@ -45,36 +26,45 @@ const MindMap = () => {
                 });
             });
         });
-        
+
         // Convert tagMap to array, sort it by popularity, then convert it back to a Map
         const sortedTagArray = Array.from(tagMap.entries()).sort((a, b) => b[1].popular - a[1].popular);
         const sortedTagMap = new Map(sortedTagArray);
 
         setTagCollect(sortedTagMap);
+
+        // Set the root node to the most popular tag
+        if (sortedTagArray.length > 0) {
+            const [tagName, tagData] = sortedTagArray[0];
+            setRootNode({
+                tagName,
+                popular: tagData.popular,
+                connections: Array.from(tagData.connections)
+            });
+        }
     };
 
     // Process tags and create nodes and edges
+    useEffect(() => {
+        console.log("Use effect runs");
+        handler.fetchAllNotes();
+    }, []);
+
     useEffect(() => {
         if (notes.length > 0) {
             processTags();
         }
     }, [notes]);
 
-    // Fetch notes on component mount
-    useEffect(() => {
-        get_all_notes();
-    }, []);
-
     // Handler to return tagCollect
     const handleReturnTagCollect = () => {
         console.log("Tag Collect:", Array.from(tagCollect.entries()));
-        alert(JSON.stringify(Array.from(tagCollect.entries()), null, 2));
+        console.log(JSON.stringify(rootNode));
     };
 
     return (
-        <div style={{ margin: '30px', width: '80%', height: '100vh', backgroundColor: 'grey' }}>
-            <ReactFlow nodes={nodes} edges={edges} />
-            <button onClick={get_all_notes}>Refresh</button>
+        <div>
+            <button onClick={handler.fetchAllNotes}>Refresh</button>
             <button onClick={handleReturnTagCollect}>Return TagCollect</button>
         </div>
     );
