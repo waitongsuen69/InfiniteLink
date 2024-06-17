@@ -7,6 +7,7 @@
         - DELETE: `curl -X DELETE http://localhost:5000/delete_all_notes`
         - EXPORT: `curl http://localhost:5000/save_notes/csv`
         - IMPORT: `curl -X POST http://localhost:5000/import_notes/csv`
+        - EditNotes: `curl -G --data-urlencode 'note={"FILE_NAME":"waiton","TAGS":["not useful","stupid shit"],"TYPE":"md","UPDATE_TIME":"2024-05-28T13:28:11.595Z","_id":"6655dbeb975efe3ad8c78855"}' http://localhost:5000/editNote`
     - tagRoutes.js
         - GET: `curl http://localhost:5000/get_all_tags`
 

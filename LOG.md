@@ -99,3 +99,5 @@
     - merge `fetchAllNotes` into `handler.js`
     - `note_map.js` Mindmap algorithm seems to be working now
     - create `notes_editor.js` working on the notes editor, working on it
+    - create `backend/routes/noteRoutes.js` and `Documents` for notes editor handling
+    
